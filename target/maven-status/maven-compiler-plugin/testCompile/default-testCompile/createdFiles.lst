@@ -1,3 +1,2 @@
-spec/TestScripts.class
 spec/OrderProduct.class
 runner/TestRunner.class

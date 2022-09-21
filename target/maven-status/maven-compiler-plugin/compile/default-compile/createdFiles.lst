@@ -10,3 +10,4 @@ helper/Constants.class
 pages/CheckoutOnePage.class
 pages/LoginPage.class
 base/BaseTest.class
+helper/ExtentReportHelper.class
