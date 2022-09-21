@@ -28,6 +28,6 @@ This is repository of selenium automationi testing framework. The website is use
 13. Integration with Jenkins
 
 # How to run the tests?
-First way Open the termial and code the project location and run mvn command - mvn test
-Second way right click on the "TestRunner" inside runner package
-Third way right click on the OrderProduct fearture file inside features package
+1. First way Open the termial and code the project location and run mvn command - mvn test
+2. Second way right click on the "TestRunner" inside runner package
+3. Third way right click on the OrderProduct fearture file inside features package
