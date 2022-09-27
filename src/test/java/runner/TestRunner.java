@@ -7,10 +7,9 @@ import org.junit.runner.RunWith;
 
 
 @RunWith(Cucumber.class)
-@CucumberOptions(features = {"src/test/java/features"},glue = {"spec"},monochrome = true)
+@CucumberOptions(features = {"src/test/java/features"}, glue = {"spec"}, tags = "@ValidOrder",plugin = { "pretty", "json:target/cucumber/report.json", "html:target/cucumber/report.html" } , monochrome = true)
 
 public class TestRunner {
-
 
 
 }

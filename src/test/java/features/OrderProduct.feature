@@ -1,6 +1,6 @@
 Feature: As a user I should be able to login and order a item in saucedemo
 
-  @buy
+  @ValidOrder
   Scenario: Login into the application with valid credentials
   	Given Open the Browser and go to URL
     Then Verify user see Sign In Page
