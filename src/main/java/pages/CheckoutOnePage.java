@@ -27,6 +27,9 @@ public class CheckoutOnePage {
     @FindBy(xpath = "//input[@id='continue']")
     public WebElement continueBtn;
 
+    @FindBy(xpath = "//h3[@data-test='error']")
+    public WebElement errorMessageBtn;
+
     public CheckoutOnePage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
@@ -35,12 +38,26 @@ public class CheckoutOnePage {
 
     public void fillUserDetails(String firstname,String lastname,String pincode) {
         try {
-           firstName.sendKeys(firstname);
-           lastName.sendKeys(lastname);
-           postalCode.sendKeys(pincode);
+          this.enterUserName(firstname);
+          this.enterLastname(lastname);
+          this.enterPincode(pincode);
         } catch (Exception e) {
             throw new RuntimeException(e.getMessage());
         }
+    }
+
+    public void enterUserName(String username) {
+        waitHelper.WaitForElement(firstName, 60);
+        this.firstName.sendKeys(username);
+    }
+    public void enterLastname(String lastname) {
+        waitHelper.WaitForElement(lastName, 60);
+        this.lastName.sendKeys(lastname);
+    }
+
+    public void enterPincode(String pincode) {
+        waitHelper.WaitForElement(postalCode, 60);
+        this.postalCode.sendKeys(pincode);
     }
 
     public void clickonContinue() {
@@ -51,4 +68,16 @@ public class CheckoutOnePage {
         }
     }
 
+
+    public String errorMessageTxt(){
+
+        String errorMessage = null;
+        try {
+            waitHelper.WaitElementVisible(errorMessageBtn,5);
+            errorMessage = errorMessageBtn.getText();
+        } catch (Exception e) {
+            throw new RuntimeException(e.getMessage());
+        }
+        return errorMessage;
+    }
 }

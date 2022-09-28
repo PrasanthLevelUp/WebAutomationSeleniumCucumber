@@ -68,7 +68,7 @@ public class OrderProduct extends BaseTest {
     public void user_Click_on_Continue_button() {
         try {
             loginPage.clickLoginButton();
-            test.pass("Successfully Logged In", MediaEntityBuilder.createScreenCaptureFromBase64String(extentReportHelper.takeScreenshotBase64()).build());
+            test.pass("Clicked on Login Button", MediaEntityBuilder.createScreenCaptureFromBase64String(extentReportHelper.takeScreenshotBase64()).build());
         } catch (Exception e) {
             test.fail(e.getMessage(), MediaEntityBuilder.createScreenCaptureFromBase64String(extentReportHelper.takeScreenshotBase64()).build());
         }
@@ -236,8 +236,8 @@ public class OrderProduct extends BaseTest {
         }
     }
 
-    @Then("Close the broswer")
-    public void close_the_broswer() {
+    @Then("Close the browser")
+    public void close_the_browser() {
         try {
             teardown();
             test.pass("Browser closed");
@@ -283,6 +283,34 @@ public class OrderProduct extends BaseTest {
         try {
             loginPage.enterUserName(getUsername());
             test.pass("Username is Entered ", MediaEntityBuilder.createScreenCaptureFromBase64String(extentReportHelper.takeScreenshotBase64()).build());
+        } catch (Exception e) {
+            test.fail(e.getMessage(), MediaEntityBuilder.createScreenCaptureFromBase64String(extentReportHelper.takeScreenshotBase64()).build());
+        }
+    }
+
+    @When("User enter firstname {string}")
+    public void user_enter_firstname(String firstname) {
+        try {
+            checkout.enterUserName(firstname);
+            test.pass("Entered firstname in checkout page", MediaEntityBuilder.createScreenCaptureFromBase64String(extentReportHelper.takeScreenshotBase64()).build());
+        } catch (Exception e) {
+            test.fail(e.getMessage(), MediaEntityBuilder.createScreenCaptureFromBase64String(extentReportHelper.takeScreenshotBase64()).build());
+        }
+    }
+    @Then("Verify the error Message in checkout page {string}")
+    public void verify_the_error_message_in_checkout_page(String errorMessage) {
+        try {
+            Assert.assertEquals(errorMessage, checkout.errorMessageTxt());
+            test.pass("Error message is displayed: " + loginPage.errorMessageTxt(), MediaEntityBuilder.createScreenCaptureFromBase64String(extentReportHelper.takeScreenshotBase64()).build());
+        } catch (Exception e) {
+            test.fail(e.getMessage(), MediaEntityBuilder.createScreenCaptureFromBase64String(extentReportHelper.takeScreenshotBase64()).build());
+        }
+    }
+    @When("User enter lastname {string}")
+    public void user_enter_lastname(String lastname) {
+        try {
+            checkout.enterLastname(lastname);
+            test.pass("Entered lastname in checkout page", MediaEntityBuilder.createScreenCaptureFromBase64String(extentReportHelper.takeScreenshotBase64()).build());
         } catch (Exception e) {
             test.fail(e.getMessage(), MediaEntityBuilder.createScreenCaptureFromBase64String(extentReportHelper.takeScreenshotBase64()).build());
         }
