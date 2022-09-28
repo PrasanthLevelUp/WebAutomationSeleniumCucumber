@@ -17,9 +17,9 @@ import pages.*;
 public class BaseTest {
 
     public static WebDriver driver;
-    public ExtentReports extent;
-    public ExtentReportHelper extentReportHelper;
-    public ExtentTest test;
+    public static ExtentReports extent;
+    public static ExtentReportHelper extentReportHelper;
+    public static ExtentTest test;
     public LoginPage loginPage;
     public InventoryPage inventoryPage;
     public CartPage cartPage;
@@ -27,13 +27,10 @@ public class BaseTest {
     public CheckoutTwoPage checkoutTwoPage;
     public WaitHelper waitHelper = new WaitHelper(driver);
 
-
-
-    public void setup(){
+    public static void setup(){
         extentReportHelper = new ExtentReportHelper();
         extent = extentReportHelper.extentSetup();
     }
-
 
     public WebDriver selectBrowser(String browser) {
         if (System.getProperty("os.name").toLowerCase().contains(OS.WINDOW.name().toLowerCase())) {
@@ -61,7 +58,6 @@ public class BaseTest {
 
     public void teardown(){
         driver.quit();
-        extent.flush();
     }
 
 }

@@ -19,6 +19,9 @@ public class LoginPage {
     @FindBy(xpath = "//input[@id='login-button']")
     public WebElement loginButton;
 
+    @FindBy(xpath = "//h3[@data-test='error']")
+    public WebElement errorMessageButton;
+
     WaitHelper waitHelper;
 
     public LoginPage(WebDriver driver) {
@@ -48,6 +51,18 @@ public class LoginPage {
         } catch (Exception e) {
             throw new RuntimeException(e.getMessage());
         }
+    }
+
+    public String errorMessageTxt(){
+
+        String errorMessage = null;
+        try {
+            waitHelper.WaitElementVisible(errorMessageButton,5);
+            errorMessage = errorMessageButton.getText();
+        } catch (Exception e) {
+            throw new RuntimeException(e.getMessage());
+        }
+        return errorMessage;
     }
 
 }
