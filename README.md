@@ -32,7 +32,7 @@ This is repository of selenium automationi testing framework. The website is use
 2. Second way right-click on the "TestRunner" inside runner package
 3. Third way right-click on the OrderProduct feature file inside features package
 
-#Scenarios Covered
+# Scenarios Covered
 1. Positive Flow:
     * Verify login with valid login username and password
     * Verify filter functionality results with high to low
@@ -49,7 +49,7 @@ This is repository of selenium automationi testing framework. The website is use
     * Verify the error message for blank username and blank password fields
     * Verify the error message for blank fields in checkout page firstname, lastname, and post code
 
-#Reports
+# Reports
    * Extent reports stored in the Reports folder on every run
    * Screenshots are stored in the Screenshots folder
 
